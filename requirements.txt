@@ -6,7 +6,6 @@ chardet==3.0.4
 idna==2.6
 urllib3==1.22
 Flask== 0.12.2
-flask==1.0.2
 click==6.7
 itsdangerous==0.24
 Jinja2==2.10
