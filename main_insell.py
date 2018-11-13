@@ -57,4 +57,5 @@ def handle_message(event):
 
 
 if __name__ == "__main__":
+    print('runnincg main')
     app.run()
