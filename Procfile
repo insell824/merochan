@@ -1,1 +1,1 @@
-web: python main_insell.py
+worker: python main_insell.py
