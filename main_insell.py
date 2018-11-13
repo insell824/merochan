@@ -1,3 +1,5 @@
+import os
+import sys
 from flask import Flask, request, abort
 
 from linebot import (
