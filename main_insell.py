@@ -1,6 +1,6 @@
 import os
 import sys
-from flask import Flask, request, abort
+from flask import Flask, render_template, request, redirect, url_for, abort
 
 from linebot import (
     LineBotApi, WebhookHandler
@@ -27,6 +27,21 @@ if channel_access_token is None:
 line_bot_api = LineBotApi(channel_access_token)
 handler = WebhookHandler(channel_secret)
 
+def picked_up():
+    messages = [
+        "こんにちは、あなたの名前を入力してください",
+        "やあ！お名前は何ですか？",
+        "あなたの名前を教えてね"
+    ]
+    # NumPy の random.choice で配列からランダムに取り出し
+    return np.random.choice(messages)
+
+@app.route('/')
+def index():
+    title = "ようこそ"
+    message = picked_up()
+    # index.html をレンダリングする
+    return render_template('index.html',message=message, title=title)
 
 @app.route("/callback", methods=['GET'])
 def callback():
