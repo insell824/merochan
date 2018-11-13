@@ -30,13 +30,16 @@ handler = WebhookHandler(channel_secret)
 
 @app.route("/callback", methods=['POST'])
 def callback():
+    print('runnincg callback()')
     # get X-Line-Signature header value
     signature = request.headers['X-Line-Signature']
-
+    print('runnincg X-Line-Signatur')
     # get request body as text
     body = request.get_data(as_text=True)
-    app.logger.info("Request body: " + body)
 
+    print('runnincg body')
+    app.logger.info("Request body: " + body)
+    print('runnincg logger')
     # handle webhook body
     try:
         handler.handle(body, signature)
